@@ -1,0 +1,20 @@
+<h1 class="text-center">Listado De Tareas</h1>
+<hr>
+
+<div class="row mb-3">
+  <div class="col box m-1 p-4">
+    <new-task (onNewTask)="onNewTask($event)"></new-task>
+  </div>
+</div>
+
+<div class="row mb-3">
+  <div class="col task m-1 p-4">
+    <list-task
+      [taskList]="tasks"
+      [taskDone]="doing"
+      (onDelete)="onDeleteTask($event)"
+      (onDeleteDone)="onDeleteTaskDone($event)"
+      (onDone)="onMoveDone($event)"
+    ></list-task>
+  </div>
+</div>

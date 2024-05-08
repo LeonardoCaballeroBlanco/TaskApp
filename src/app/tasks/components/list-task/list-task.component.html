@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col overflow-auto prueba me-3">
+    <h3 class="text-center text-white mt-2">Por Hacer</h3>
+    <div *ngFor="let task of taskList" class="me-2">
+      <div>
+        <strong>{{ task.title }}</strong>
+        <br />
+        <span *ngIf="task.description">Descripción:</span>
+        <br />
+        <span>{{ task.description }}</span>
+
+        <div class="row d-flex justify-content-around m-2">
+          <button
+            (click)="onDeleteTask(task.id)"
+            class="btn btn-outline-danger mb-1 ms-1 w-25"
+          >
+            x
+          </button>
+          <br />
+          <button
+            (click)="onMoveDone(task)"
+            class="btn btn-outline-primary mb-1 ms-1 w-25"
+          >
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col overflow-auto prueba me-3">
+    <h3 class="text-center text-white mt-2">Terminadas</h3>
+    <div *ngFor="let task of taskDone" class="me-2">
+      <div *ngIf="task.title != ''">
+        <strong>{{ task.title }}</strong>
+        <br />
+        <span *ngIf="task.description">Descripción:</span>
+        <br />
+        <span>{{ task.description }}</span>
+
+        <div class="row d-flex justify-content-center m-2">
+          <button
+            (click)="onDeleteTaskDone(task.id)"
+            class="btn btn-outline-danger mb-1 ms-1 w-25"
+          >
+            x
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
