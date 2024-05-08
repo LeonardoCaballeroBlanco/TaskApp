@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Status, Task } from '../../interfaces/task.interface';
+import { Task } from '../../interfaces/task.interface';
 
 
 @Component({
@@ -11,16 +11,16 @@ export class ListTaskComponent {
 
   @Input()
   public taskList: Task[] = [{
+    id: '',
     title: '',
     description: '',
-    status: 1
   }]
 
   @Input()
   public taskDone: Task[] = [{
+    id: '',
     title: '',
     description: '',
-    status: 2
   }]
 
   @Output()

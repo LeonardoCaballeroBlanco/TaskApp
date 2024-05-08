@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { v4 as uuid } from 'uuid';
 
-import { Status, Task } from '../interfaces/task.interface';
+import { Task } from '../interfaces/task.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,6 @@ export class TaskService {
       id: uuid(),
       title: 'Compra',
       description: 'cebollas, ajos....',
-      status: 1
     }
   ]
 
@@ -23,7 +22,6 @@ export class TaskService {
       id: uuid(),
       title: '',
       description: '',
-      status: 2
     }
   ]
 
@@ -47,7 +45,7 @@ export class TaskService {
   }
 
   addTask( task: Task ): void{
-    const newTask: Task = { id: uuid(), ...task };
+    const newTask: Task = { id: uuid(), title: task.title, description: task.description };
 
     this.tasks.push(newTask);
     this.saveLocalStorage();
@@ -66,7 +64,7 @@ export class TaskService {
   }
 
   moveToDone ( done: Task ) {
-    const newTask: Task = { id: done.id, title: done.title, description: done.description, status: done.status };
+    const newTask: Task = { id: done.id, title: done.title, description: done.description };
     this.done.push(newTask);
     console.log(newTask);
 

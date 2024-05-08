@@ -9,9 +9,9 @@ import { Task } from '../../interfaces/task.interface';
 export class NewTaskComponent {
 
   public task: Task = {
+    id: '',
     title: '',
     description: '',
-    status: 1
   }
 
   @Output()
@@ -22,7 +22,7 @@ export class NewTaskComponent {
 
     this.onNewTask.emit(this.task);
 
-    this.task = { title: '', description: '' };
+    this.task = { id: '', title: '', description: '' };
   }
 
 }
